@@ -1,9 +1,13 @@
 <h1>Http Service Demo using Observable</h1>
 <hr>
+<hr>
+<h2>Getting a record........</h2>
 <h2>
   Enter ID : <input type="text" #i>
   <button type="button" (click)="getItem(i.value)">GET USER</button>
   <br><br>
+  <span>{{ errorMsg }}</span>
+  <br>
 </h2>
 <hr>
 <h3>
@@ -11,7 +15,42 @@
   User Name : {{user.name}}<br>
   Age : {{user.age}}
 </h3>
+<hr>
+<hr>
 
+<h2>Inserting a record........</h2>
+<h2>
+  Enter ID : <input type="text" #id1><br>
+  Enter Name : <input type="text" #n1><br>
+  Enter Age : <input type="text" #a1><br><br>
+  <button type="button" (click)="postItem(id1.value, n1.value, a1.value)">POST USER</button>
+  <br><br>
+  <span>{{ errorMsg1 }}</span>
+  <br>
+</h2>
+<hr>
+<hr>
+
+<h2>Deleting a record........</h2>
+<h2>
+  Enter ID : <input type="text" #id2>
+  <button type="button" (click)="deleteItem(id2.value)">Delete USER</button>
+  <br><br>
+  <span>{{ errorMsg2 }}</span>
+  <br>
+</h2>
+<hr>
+<hr>
+
+<h2>Getting All records........</h2>
+<h2>
+  <button type="button" (click)="getAllItems()">Display All USERS</button>
+  <br><br>
+</h2>
+<ul>
+  <li *ngFor="let user of users">{{user.id}} {{user.name}} {{user.age}}<hr></li>
+</ul>
+<hr>
 <hr>
 
 

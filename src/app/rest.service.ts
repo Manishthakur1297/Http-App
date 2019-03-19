@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { Response } from '@angular/http/src/static_response'
 import { interval, Observable } from 'rxjs';
 import 'rxjs/rx';
+import { User } from './my-comp/user';
 
 
 @Injectable({
@@ -19,6 +20,27 @@ export class RestService {
       .map((response : any)=>response);
     }
 
+    postUser(user:User)
+    {
+      return this.http.post(this.url,user)
+      .map((response : any)=>response)
+    }
+
+    deleteUser(id)
+    {
+        return this.http.delete(this.url+id)
+        .map((response:any)=>response)
+    }
+
+    getAllUsers()
+    {
+        return this.http.get(this.url)
+        .map((response : Response) => response.json())
+    }
+
+  }
+
+
     // getUser(id) : void
     // {
     //   this.http.get(this.url+id).subscribe(
@@ -26,5 +48,3 @@ export class RestService {
     //     (response:Response)=> console.log(response.json())
     //   )
     // }
-  
-}
